@@ -1,0 +1,8 @@
+dockerfile:
+  Dockerfile_exer_1.11
+
+build command:
+  sudo docker build --build-arg http_proxy=http://192.168.11.104:7890 --build-arg https_proxy=http://192.168.11.104:7890 -t backend-example -f ./Dockerfile_exec_1.11 .
+
+run command :
+  sudo docker run -d -p 8000:8000 backend-example
