@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+
+RUN apt update && apt install curl -y 
+COPY frontend-example-docker /home
+WORKDIR /home
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash	       
+RUN apt install -y nodejs \
+	       && npm install \
+	       && npm run build \
+	       && npm install -g serve
+
+ENTRYPOINT ["serve", "-s", "-l", "5000", "dist"]

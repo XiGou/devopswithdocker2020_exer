@@ -1,0 +1,32 @@
+
+➜  ~ sudo docker run -d --name exec1.4 --rm devopsdockeruh/exec_bash_exercise
+7481aa9ea7d78c2360b67ca05fafd5df32fcc9cad94c55420e8b880a8fb49412
+➜  ~ sudo docker exec exec1.4 bash
+➜  ~ sudo docker exec -it exec1.4 bash
+root@7481aa9ea7d7:/usr/app# pqd
+bash: pqd: command not found
+root@7481aa9ea7d7:/usr/app# [wd
+bash: [wd: command not found
+root@7481aa9ea7d7:/usr/app# pwd
+/usr/app
+root@7481aa9ea7d7:/usr/app# tail -f ./logs.txt
+Fri, 23 Oct 2020 06:04:43 GMT
+Fri, 23 Oct 2020 06:04:46 GMT
+Secret message is:
+"Docker is easy"
+Fri, 23 Oct 2020 06:04:52 GMT
+Fri, 23 Oct 2020 06:04:55 GMT
+Fri, 23 Oct 2020 06:04:58 GMT
+Fri, 23 Oct 2020 06:05:01 GMT
+Secret message is:
+"Docker is easy"
+Fri, 23 Oct 2020 06:05:07 GMT
+Fri, 23 Oct 2020 06:05:10 GMT
+Fri, 23 Oct 2020 06:05:13 GMT
+Fri, 23 Oct 2020 06:05:16 GMT
+Secret message is:
+"Docker is easy"
+^C
+root@7481aa9ea7d7:/usr/app# exit
+exit
+

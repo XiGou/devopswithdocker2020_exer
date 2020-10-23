@@ -1,0 +1,8 @@
+dockerfile:
+  ./Dockerfile_exec_1.7
+build command:
+  sudo docker build --build-arg http_proxy=http://192.168.11.104:7890 --build-arg https_proxy=http://192.168.11.104:7890 -t curler -f ./Dockerfile_exec_1.7 .
+run command:
+  sudo docker run --rm -it curler
+shell script:
+  ./curl_website.sh

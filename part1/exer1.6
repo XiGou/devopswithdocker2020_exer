@@ -1,0 +1,7 @@
+
+dockerfile:
+  ./Dockerfile_exec_1.6
+build command:
+  sudo docker build --build-arg http_proxy=http://192.168.1.1:7890 --build-arg https_proxy=http://192.168.1.1:7890 -t docker-clock -f ./Dockerfile_exec_1.6 .
+run command:  
+  sudo docker run --rm docker-clock

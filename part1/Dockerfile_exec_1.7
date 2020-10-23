@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+
+RUN apt update && apt install curl -y
+
+COPY curl_website.sh .
+
+RUN chmod +x ./curl_website.sh
+
+CMD ./curl_website.sh
+
