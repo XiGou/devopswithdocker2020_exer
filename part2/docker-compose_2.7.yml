@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  backend:
+      build:
+              context: ./ml-kurkkumopo-backend
+      image:  backend-exer2.7-ml
+      ports:
+              - 5000:5000
+      container_name: backend-exer2.7-container
+
+  frontend:
+      build:
+              context: ./ml-kurkkumopo-frontend
+              dockerfile: Dockerfile
+      image:  frontend-exer2.7-ml
+      ports:
+              - 3000:3000
+      container_name: frontend-exer2.7-container
+ 
+  training:
+      build:
+              context: ./ml-kurkkumopo-training
+      image: training-exer2.7-ml
+      volumes:
+              - ./model:/src/model
+      container_name: training-exer2.7-container

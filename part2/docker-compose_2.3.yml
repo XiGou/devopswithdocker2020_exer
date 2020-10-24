@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  backend:
+      build:
+              context: ./backend/
+              dockerfile: Dockerfile
+      image:  backend-exer2.3
+      environment:
+              - FRONT_URL=http://192.168.11.110:5000
+      ports:
+              - 8000:8000
+      container_name: backend-exer2.3-container
+
+  frontend:
+      build:
+              context: ./frontend/
+              dockerfile: Dockerfile
+      image:  frontend-exer2.3
+      environment:
+              - API_URL=http://192.168.11.110:8000
+      ports:
+              - 5000:5000
+      container_name: frontend-exer2.3-container
+        
