@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+
+COPY ./frontend-example-docker /home
+WORKDIR /home
+
+RUN apt update && apt install curl -y && \
+ curl -sL https://deb.nodesource.com/setup_10.x | bash && \	       
+ apt install -y nodejs && \
+ npm install && \
+ npm run build && \
+ npm install -g serve && \
+ apt purge -y --auto-remove curl && \
+ rm -rf /var/lib/apt/list/*
+
+EXPOSE 5000
+
+ENTRYPOINT ["serve", "-s", "-l", "5000", "dist"]

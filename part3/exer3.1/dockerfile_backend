@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+COPY backend-example-docker /home
+WORKDIR /home
+
+RUN apt update && apt install curl -y && \
+ curl -sL https://deb.nodesource.com/setup_10.x | bash && \	       
+ apt install -y nodejs && \
+ npm install  && \
+ apt purge -y --auto-remove curl && \
+ rm -rf /var/lib/apt/lists/* 
+
+
+EXPOSE 8000
+ENTRYPOINT ["npm", "start"]

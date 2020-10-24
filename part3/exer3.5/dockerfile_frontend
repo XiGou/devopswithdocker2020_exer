@@ -1,0 +1,15 @@
+FROM node:10-alpine3.9
+
+COPY ./frontend-example-docker /home
+WORKDIR /home
+
+RUN npm install && \
+ npm run build && \
+ npm install -g serve && \
+ adduser --disabled-password app && \
+ chown -R app /home
+
+USER app
+EXPOSE 5000
+
+ENTRYPOINT ["serve", "-s", "-l", "5000", "dist"]

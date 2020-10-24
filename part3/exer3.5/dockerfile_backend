@@ -1,0 +1,13 @@
+FROM node:10-alpine3.9
+
+COPY backend-example-docker /home
+WORKDIR /home
+
+RUN adduser --disabled-password  app && \
+    npm install && \
+    chown -R app /home 
+
+USER app
+
+EXPOSE 8000
+ENTRYPOINT ["npm", "start"]
